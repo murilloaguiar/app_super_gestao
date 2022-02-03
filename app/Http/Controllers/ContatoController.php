@@ -54,7 +54,7 @@ class ContatoController extends Controller
     public function salvar(Request $request){
         //name dos inputs
         $request->validate([
-                'nome'=> 'required|min:3|max:40:unique:site_contatos', //nomes com no mínimo 3 caracteres e no máximo 40 e únicos.
+                'nome'=> 'required|min:3|max:40|unique:site_contatos', //nomes com no mínimo 3 caracteres e no máximo 40 e únicos.
                 'telefone'=> 'required',
                 'email'=> 'email',//verifica se fornece um dado de email válido
                 'motivo_contatos_id'=> 'required',
