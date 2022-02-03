@@ -1,7 +1,8 @@
 <?php
 
+namespace Database\Seeders;
 use Illuminate\Database\Seeder;
-use App\MotivoContato;
+use App\Models\MotivoContato;
 
 class MotivoContatoSeeder extends Seeder
 {

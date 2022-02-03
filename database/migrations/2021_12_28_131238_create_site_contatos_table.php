@@ -19,8 +19,10 @@ class CreateSiteContatosTable extends Migration
             $table->string('nome',50);
             $table->string('telefone',20);
             $table->string('email',80);
-            $table->integer('motivo_contato');
+            $table->unsignedBigInteger('motivo_contatos_id');
             $table->text('mensagem');
+
+            $table->foreign('motivo_contatos_id')->references('id')->on('motivo_contatos');
         });
     }
 
@@ -30,7 +32,10 @@ class CreateSiteContatosTable extends Migration
      * @return void
      */
     public function down()
-    {
+    {   
+        Schema::table('site_contatos', function (Blueprint $table) {
+            $table->dropForeign('site_contatos_motivo_contatos_id_foreign');//[tabela]_[coluna]_foreign
+        });
         Schema::dropIfExists('site_contatos');
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
+namespace Database\Seeders;
 use Illuminate\Database\Seeder;
-use App\SiteContato;
+use App\Models\SiteContato;
 
 class SiteContatoSeeder extends Seeder
 {
@@ -22,6 +23,6 @@ class SiteContatoSeeder extends Seeder
         $contato->save();*/
 
         //cria 100 registros tendo como base o model SiteContato
-        \App\SiteContato::factory()->count(100)->create();
+        SiteContato::factory()->count(100)->create();
     }
 }

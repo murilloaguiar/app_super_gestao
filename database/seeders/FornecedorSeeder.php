@@ -1,7 +1,10 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
-Use App\Fornecedor;
+use Illuminate\Support\Facades\DB;
+Use App\Models\Fornecedor;
 
 class FornecedorSeeder extends Seeder
 {
