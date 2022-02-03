@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\ProdutoDetalhe;
-Use App\Unidade;
-use App\ItemDetalhe;
+use App\Models\ProdutoDetalhe;
+Use App\Models\Unidade;
+use App\Models\ItemDetalhe;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\Promise\all;

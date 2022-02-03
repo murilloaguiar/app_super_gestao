@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Pedido;
-use App\Cliente;
+use App\Models\Pedido;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller

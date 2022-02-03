@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Fornecedor;
+use App\Models\Fornecedor;
 
 use Illuminate\Http\Request;
 
