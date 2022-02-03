@@ -22,6 +22,6 @@ class SiteContatoSeeder extends Seeder
         $contato->save();*/
 
         //cria 100 registros tendo como base o model SiteContato
-        factory(SiteContato::class, 100)->create();
+        \App\SiteContato::factory()->count(100)->create();
     }
 }

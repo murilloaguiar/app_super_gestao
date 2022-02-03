@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Item extends Model
 {
+    use HasFactory;
     protected $table = 'produtos'; //A classe item tem que mapear a tabela produtos la do bd
     protected $fillable = ['nome', 'descricao','peso','unidade_id','fornecedor_id'];
 
