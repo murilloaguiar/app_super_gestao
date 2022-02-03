@@ -38,11 +38,20 @@ Route::get('/contato/{nome?}/{categoria?}/{assunto?}/{mensagem?}', function(stri
 //interrogação ao fim do parametro indica que ele é opcional, mas é preciso definir um valor padrão. Mas isso deve ser feito da direita para a esquerda*/
 
 Route::get('/','PrincipalController@principal')->name('site.index');
+
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
+
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
+
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
+
 Route::get('/login/{erro?}', 'LoginController@index')->name('site.login');
+
 Route::post('/login', 'LoginController@autenticar')->name('site.login');
+
+Route::get('/cadastrar/{erro?}', 'LoginController@cadastrar')->name('site.cadastrar');
+
+Route::post('/cadastrar', 'LoginController@registrar')->name('site.cadastrar');
 
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
     Route::get('/home', 'HomeController@index')

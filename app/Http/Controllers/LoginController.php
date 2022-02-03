@@ -56,6 +56,38 @@ class LoginController extends Controller
 
     }
 
+    public function cadastrar(){
+        return view('site.cadastrar');
+    }
+
+    public function registrar(Request $request){
+
+        $regras = [
+            'name'=>'required',
+            'password'=>'required',
+            'email'=>'required|email|unique:users'
+        ];
+        $feedback = [
+            'email.email'=>'O campo email precisa ser válido',
+            'email.unique' => 'Este email já está em uso',
+            'required'=> 'O campo :attribute é obrigatório'
+        ];
+
+        //se negado, a rota antiga é requisitada
+
+        $request->validate($regras, $feedback);
+
+        User::create($request->all());
+
+        session_start();
+        $_SESSION['nome'] = $request->name;
+        $_SESSION['email'] = $request->email;
+
+        return redirect()->route('app.home'); 
+
+        //dd($request->all());
+    }
+
     public function sair(){
         session_destroy();
         return redirect()->route('site.index');
