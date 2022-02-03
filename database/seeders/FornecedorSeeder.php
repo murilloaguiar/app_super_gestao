@@ -15,7 +15,7 @@ class FornecedorSeeder extends Seeder
      */
     public function run()
     {
-        //instanciando o objeto
+        /*instanciando o objeto
         $fornecedor = new Fornecedor();
         $fornecedor->nome = 'Fornecedor 100';
         $fornecedor->site = 'fornecedor100.com.br';
@@ -37,7 +37,9 @@ class FornecedorSeeder extends Seeder
             'site'=> 'fornecedor300.com.br',
             'uf'=>'SP',
             'email'=>'contato@fornecedor300.com.br'
-        ]);
+        ]);*/
+
+        Fornecedor::factory()->count(10)->create();
 
     }
 }
