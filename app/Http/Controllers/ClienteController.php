@@ -68,9 +68,11 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cliente $cliente)
     {
-        //
+        return view('app.cliente.edit', [
+            'cliente' => $cliente
+        ]);
     }
 
     /**
@@ -80,9 +82,12 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cliente $cliente)
     {
-        //
+        $request->validate($cliente::rules(), $cliente::feedback());
+        $cliente->update($request->all());
+
+        return redirect()->route('cliente.index');
     }
 
     /**
