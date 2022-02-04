@@ -9,7 +9,7 @@
             <p>Listagem de clientes</p>
         </div>
         
-        <div class="menu">
+        <div class="menu mb-3">
             <ul>
                 <li><a href="{{route('cliente.create')}}">Novo</a></li>
                 <li><a href="">Consulta</a></li>
@@ -19,7 +19,7 @@
         <div class="informacao-pagina">
             <div style="width: 80%; margin-left: auto; margin-right: auto;">
 
-                <table border="1" width="100%">
+                <table border="1" width="100%" class="table">
                     <thead>
                         <tr>
                             <th>Nome</th>

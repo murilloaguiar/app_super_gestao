@@ -39,17 +39,8 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $regras = [
-            'nome' =>'required|min:3|max:40'
-        ];
-
-        $feedback = [
-            'required'=>'O campo :atrribute precisa ser prenchido',
-            'nome.min' => 'nome precisa ter no mínimo 3 caracteres',
-            'nome.max' => 'nome precisa ter no máximo 40 caracteres'
-        ];
-
-        $request->validate($regras, $feedback);
+        
+        $request->validate(Cliente::rules(), Cliente::feedback());
 
         $cliente = new Cliente;
         $cliente->nome = $request->get('nome');

@@ -17,8 +17,8 @@ class FornecedorFactory extends Factory
     {
         $uf = ['MG','SP','ES','RJ','BA','GO'];
         return [
-            'nome'=> $this->faker->name,
-            'email'=> $this->faker->unique()->email,
+            'nome'=> $this->faker->name(),
+            'email'=> $this->faker->unique()->email(),
             'site' => 'https://www.'.Str::random(10).'.com',
             'uf' => Arr::random($uf)
         ];
