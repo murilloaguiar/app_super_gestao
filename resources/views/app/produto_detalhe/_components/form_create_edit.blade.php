@@ -22,7 +22,7 @@
     {{$errors->has('altura') ? $errors->first('altura') : ''}}
 
     <select name="unidade_id" id="" class="borda-preta">
-        <option value="">Selecione</option>
+        <option value="">Unidade</option>
         @foreach($unidades as $unidade)
             <option value="{{$unidade->id}}" {{($produto_detalhe->unidade_id ?? old('unidade_id')) == $unidade->id ? 'selected' : ''}}>{{$unidade->descricao}}</option>
         @endforeach
