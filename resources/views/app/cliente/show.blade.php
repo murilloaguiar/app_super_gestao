@@ -23,8 +23,8 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
-                            <th></th>
-                            <th></th>
+                            <th>Excluir</th>
+                            <th>Editar</th>
                             
                         </tr>
                     </thead>
@@ -37,10 +37,10 @@
                                     <form method="post" id="form_{{$cliente->id}}" action="{{route ('cliente.destroy', ['cliente'=>$cliente->id])}}">
                                         @method('DELETE')
                                         @csrf
-                                        <a href="#" onclick="document.getElementById('form_{{$cliente->id}}').submit()">Excluir</a>
+                                        <a href="#" onclick="document.getElementById('form_{{$cliente->id}}').submit()" class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                     </form>
                                 </td>
-                                <td><a href="{{route ('cliente.edit', ['cliente'=>$cliente->id])}}">Editar</a></td>
+                                <td><a href="{{route ('cliente.edit', ['cliente'=>$cliente->id])}}"class="btn btn-primary"><i class="bi bi-pencil"></i></a></td>
                             </tr>
                        
                     </tbody>
