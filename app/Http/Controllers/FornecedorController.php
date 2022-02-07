@@ -67,24 +67,7 @@ class FornecedorController extends Controller
         if ($request->input('_token') != '' && $request->input('id') == '') {
             # cadastro...
             //validando dados
-            $regras = [
-                'nome'=> 'required|min:3|max:40',
-                'site'=> 'required',
-                'uf'=> 'required|min:2|max:2',
-                'email'=> 'email'
-            ];
-
-            $feedback = [
-                'required' => 'O campo :attribute deve ser preenchido',
-                'nome.min' => 'O campo nome deve ter no mínimo três caracteres',
-                'nome.max' => 'O campo nome deve ter no máximo 40 caracteres',
-                'uf.min' => 'O campo uf deve ter no mínimo três caracteres',
-                'uf.max' => 'O campo uf deve ter no máximo 2 caracteres',
-                'email.email' => 'O campo email deve ser um email válido'
-                
-            ];
-
-            $request->validate($regras, $feedback);
+            $request->validate(Fornecedor::rules(), Fornecedor::feedback());
 
             $fornecedor = new Fornecedor();
             $fornecedor->create($request->all());

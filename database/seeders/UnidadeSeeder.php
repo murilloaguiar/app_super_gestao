@@ -22,5 +22,13 @@ class UnidadeSeeder extends Seeder
             'unidade'=>'kg',
             'descricao' => 'kilo'
         ]);
+        Unidade::create([
+            'unidade'=>'cm',
+            'descricao' => 'centrimetro'
+        ]);
+        Unidade::create([
+            'unidade'=>'m',
+            'descricao' => 'metro'
+        ]);
     }
 }
