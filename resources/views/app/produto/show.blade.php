@@ -12,7 +12,7 @@
         <div class="menu">
             <ul>
                 <li><a href="{{route('produto.index')}}">Voltar</a></li>
-                <li><a href="{{route('produto-detalhe.edit',['produto_detalhe'=>$produto->id])}}">Editar detalhes</a></li>
+                <li><a href="{{route('produto-detalhe.edit',['produto_detalhe'=>$produto->produtoDetalhe->id])}}">Editar detalhes</a></li>
                 
             </ul>
         </div>
@@ -49,7 +49,7 @@
                     <td>{{$produto->unidade_id}}</td>
                 </tr>
 
-                @if ($produto->produtoDetalhe)
+                @if ($produto->produtoDetalhe && $unidade)
                     
                 
                 <tr>

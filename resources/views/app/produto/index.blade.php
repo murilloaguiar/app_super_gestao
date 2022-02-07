@@ -12,7 +12,7 @@
         <div class="menu mb-3">
             <ul>
                 <li><a href="{{route('produto.create')}}">Novo</a></li>
-                <li><a href="">Consulta</a></li>
+                <li><a href="{{route ('produto-detalhe.create')}}">Adicionar Detalhes</a></li>
             </ul>
         </div>
 

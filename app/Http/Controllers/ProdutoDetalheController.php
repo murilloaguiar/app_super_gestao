@@ -32,6 +32,8 @@ class ProdutoDetalheController extends Controller
         return view('app.produto_detalhe.create',[
             'unidades'=>$unidades
         ]);
+
+        return redirect()->route('produto.index');
     }
 
     /**
@@ -42,6 +44,7 @@ class ProdutoDetalheController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(ProdutoDetalhe::rules(), ProdutoDetalhe::feedback());
         ProdutoDetalhe::create($request->all());
     }
 
@@ -82,8 +85,13 @@ class ProdutoDetalheController extends Controller
      */
     public function update(Request $request, ProdutoDetalhe $produtoDetalhe)
     {
+        $newRules = $produtoDetalhe::rules();
+        $newFeedback = $produtoDetalhe::feedback();
+        unset($newRules['produto_id']);
+        unset($newFeedback['produto_id.unique']);
+        $request->validate($newRules,$newFeedback);
         $produtoDetalhe->update($request->all());
-        echo 'atualização realizada com sucesso';
+        return redirect()->route('produto.index');
     }
 
     /**
