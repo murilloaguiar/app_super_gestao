@@ -102,8 +102,12 @@ class ProdutoController extends Controller
     public function show(Produto $produto)
     {
         //$produto objeto já instânciado com base no id informado na rota
+        $produto->produtoDetalhe;
+        $unidade_id = $produto->produtoDetalhe->unidade_id;
+        $unidade = Unidade::find($unidade_id);
         return view('app.produto.show', [
-            'produto'=>$produto
+            'produto'=>$produto,
+            'unidade'=>$unidade->unidade
         ]);
     }
 

@@ -48,7 +48,25 @@
                     <th>Unidade_id</th>
                     <td>{{$produto->unidade_id}}</td>
                 </tr>
+
+                @if ($produto->produtoDetalhe)
                     
+                
+                <tr>
+                    <th>Comprimento</th>
+                    <td>{{$produto->produtoDetalhe->comprimento .' '.$unidade}}</td>
+                </tr>
+
+                <tr>
+                    <th>Largura</th>
+                    <td>{{$produto->produtoDetalhe->largura .' '.$unidade}}</td>
+                </tr>
+
+                <tr>
+                    <th>Altura</th>
+                    <td>{{$produto->produtoDetalhe->altura.' '.$unidade}}</td>
+                </tr>
+                @endif
                 
             </table>
             
