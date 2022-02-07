@@ -11,6 +11,7 @@
             <li><a href="{{ route('pedido.index') }}">Pedido</a></li>
             <li><a href="{{ route('app.fornecedor') }}">Fornecedor</a></li>
             <li><a href="{{ route('produto.index') }}">Produto</a></li>
+            <li><a href="{{ route('filial.index') }}">Filial</a></li>
             <li><a href="{{ route('app.sair') }}">Sair</a></li>
         </ul>
     </div>

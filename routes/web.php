@@ -94,7 +94,7 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::resource('produto-filial', 'ProdutoFilialController');
 
     //filiais
-    Route::resource('produto-filial', 'FilialController');
+    Route::resource('filial', 'FilialController');
 
 
     Route::resource('cliente', 'ClienteController');

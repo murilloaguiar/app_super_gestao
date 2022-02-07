@@ -15,7 +15,11 @@ class FilialController extends Controller
      */
     public function index()
     {
-        //
+    
+        return view('app.filial.index',[
+            'filiais' => Filial::all(),
+            'numeroFiliais' => Filial::count()
+        ]);
     }
 
     /**
@@ -25,7 +29,7 @@ class FilialController extends Controller
      */
     public function create()
     {
-        //
+        echo 'chegamos até aqui';
     }
 
     /**
