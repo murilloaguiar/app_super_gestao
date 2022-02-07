@@ -24,15 +24,10 @@
                     <tr>
                         <th>Nome</th>
                         <th>Descrição</th>
-                        <th>Peso</th>
                         <th>Fornecedor</th>
-                        <th>site fornecedor</th>
-                        <th>Comprimento</th>
-                        <th>Altura</th>
-                        <th>Largura</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Visualizar</th>
+                        <th>Excluir</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,21 +35,16 @@
                         <tr>
                             <td>{{$produto->nome}}</td>
                             <td>{{$produto->descricao}}</td>
-                            <td>{{$produto->peso}}</td>
                             <td>{{$produto->fornecedor->nome}}</td>
-                            <td>{{$produto->fornecedor->site}}</td>
-                            <td>{{$produto->itemDetalhe->comprimento ?? ''}}</td>
-                            <td>{{$produto->itemDetalhe->altura ?? ''}}</td>
-                            <td>{{$produto->itemDetalhe->largura ?? ''}}</td>
-                            <td><a href="{{route ('produto.show', $produto->id)}}">Visualizar</a></td>
+                            <td><a href="{{route ('produto.show', $produto->id)}}"class="btn btn-secondary"><i class="bi bi-eye"></i></a></td>
                             <td>
                                 <form action="{{route ('produto.destroy', $produto->id)}}" method="post" id="form_{{$produto->id}}">
                                     @method('DELETE')
                                     @csrf
-                                    <a href="#" onclick="document.getElementById('form_{{$produto->id}}').submit()">Excluir</a>
+                                    <a href="#" onclick="document.getElementById('form_{{$produto->id}}').submit()"class="btn btn-danger"><i class="bi bi-trash"></i></a>
                                 </form>
                             </td>
-                            <td><a href="{{route ('produto.edit', $produto->id)}}">Editar</a></td>
+                            <td><a href="{{route ('produto.edit', $produto->id)}}"class="btn btn-primary"><i class="bi bi-pencil"></i></a></td>
                         </tr>
 
                         <tr>
