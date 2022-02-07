@@ -90,6 +90,12 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     //produto detalhes
     Route::resource('produto-detalhe', 'ProdutoDetalheController');
 
+    //produto filiais
+    Route::resource('produto-filial', 'ProdutoFilialController');
+
+    //filiais
+    Route::resource('produto-filial', 'FilialController');
+
 
     Route::resource('cliente', 'ClienteController');
     Route::resource('pedido', 'PedidoController');

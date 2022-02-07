@@ -27,8 +27,7 @@ class AjusteProdutosFiliais extends Migration
             $table->unsignedBigInteger('produto_id');
             $table->float('preco_venda',8,2);
             $table->integer('estoque_minimo');
-            $table->integer('estoque_máximo');
-            $table->string('filial',30);
+            $table->integer('estoque_maximo');
 
             //constraints
             $table->foreign('filial_id')->references('id')->on('filiais');
