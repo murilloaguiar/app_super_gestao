@@ -11,6 +11,10 @@ class Filial extends Model
     protected $table = 'filiais';
     protected $fillable = ['filial'];
 
+    public function produtos(){
+        return $this->BelongsToMany('App\Models\Item','produto_filiais','filial_id','produto_id');
+    }
+
     public function rules(){
         return [
             'filial' => "required|unique:filiais,filial, $this->id|min:3"

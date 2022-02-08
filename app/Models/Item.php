@@ -22,4 +22,8 @@ class Item extends Model
     public function pedidos(){
         return $this->belongsToMany('App\Models\Pedido', 'pedidos_produtos','produto_id','pedido_id');
     }
+
+    public function filiais(){
+        return $this->belongsToMany('App\Models\Filial','produto_filiais','produto_id','filial_id');
+    }
 }
