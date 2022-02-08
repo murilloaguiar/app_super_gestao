@@ -14,16 +14,16 @@ class ProdutoDetalhe extends Model
         return $this->belongsTo('App\Models\Produto');
     }
 
-    public static function rules(){
+    public function rules(){
         return [
-            'produto_id' =>'unique:produto_detalhes|required',
-            'comprimento' => 'required|numeric',
-            'largura' => 'required|numeric',
-            'altura' => 'required|numeric',
-            'unidade' => 'required'
+            'produto_id' =>"unique:produto_detalhes,produto_id, $this->id|required",
+            'comprimento' => "required|numeric",
+            'largura' => "required|numeric",
+            'altura' => "required|numeric",
+            'unidade' => "required"
         ];
     }
-    public static function feedback(){
+    public function feedback(){
         return [
             'produto_id.unique' =>'Já existem detalhes para o id desse produto',
             'required' => 'Preencha o campo :attribute',
