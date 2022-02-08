@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Filial;
-use App\Http\Requests\StoreFilialRequest;
-use App\Http\Requests\UpdateFilialRequest;
+use Illuminate\Http\Request;
 
 class FilialController extends Controller
 {
@@ -13,8 +12,7 @@ class FilialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
     
         return view('app.filial.index',[
             'filiais' => Filial::all(),
@@ -29,7 +27,7 @@ class FilialController extends Controller
      */
     public function create()
     {
-        echo 'chegamos até aqui';
+        return view('app.filial.create');
     }
 
     /**
@@ -38,9 +36,13 @@ class FilialController extends Controller
      * @param  \App\Http\Requests\StoreFilialRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFilialRequest $request)
+    public function store(Request $request)
     {
-        //
+        $filial = new Filial;
+        $request->validate($filial->rules(), $filial->feedback());
+        Filial::create($request->all());
+
+        return redirect()->route('filial.index');
     }
 
     /**
@@ -62,7 +64,9 @@ class FilialController extends Controller
      */
     public function edit(Filial $filial)
     {
-        //
+        return view('app.filial.edit', [
+            'filial' => $filial
+        ]);
     }
 
     /**
@@ -72,9 +76,13 @@ class FilialController extends Controller
      * @param  \App\Models\Filial  $filial
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFilialRequest $request, Filial $filial)
-    {
-        //
+    public function update(Request $request, Filial $filial){
+        
+        $request->validate($filial->rules(), $filial->feedback());
+
+        $filial->update($request->all());
+
+        return redirect()->route('filial.index');
     }
 
     /**
@@ -85,6 +93,8 @@ class FilialController extends Controller
      */
     public function destroy(Filial $filial)
     {
-        //
+        $filial->delete();
+
+        return redirect()->route('filial.index');
     }
 }
