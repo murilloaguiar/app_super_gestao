@@ -37,25 +37,35 @@
                             <td>
                                 @foreach ($clientes as $cliente)
                                     @if ($pedido->cliente_id == $cliente->id)
-                                        {{$cliente->nome}}
+                                        {{ $cliente->nome }}
                                     @endif
                                 @endforeach
                             </td>
-                            <td><a href="{{ route('pedido-produto.create', ['pedido' => $pedido->id]) }}"
-                                    class="btn btn-success"><i class="bi bi-plus-square"></i></a></td>
-                            <td><a href="{{ route('pedido.show', $pedido->id) }}" class="btn btn-secondary"><i
-                                        class="bi bi-eye"></i></a></td>
+
+                            <td><a href="{{ route('pedido-produto.create', ['pedido' => $pedido->id]) }}" class="btn btn-success">
+                                    <i class="bi bi-plus-square"></i>
+                            </a></td>
+
+                            <td><a href="{{ route('pedido.show', $pedido->id) }}" class="btn btn-secondary">
+                                    <i class="bi bi-eye"></i>
+                            </a></td>
+
                             <td>
                                 <form method="post" id="form_{{ $pedido->id }}"
                                     action="{{ route('pedido.destroy', ['pedido' => $pedido->id]) }}">
                                     @method('DELETE')
                                     @csrf
                                     <a href="#" onclick="document.getElementById('form_{{ $pedido->id }}').submit()"
-                                        class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                                        class="btn btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
                                 </form>
                             </td>
-                            <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}" class="btn btn-primary"><i
-                                        class="bi bi-pencil"></i></a></td>
+
+                            <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}" class="btn btn-primary">
+                                    <i class="bi bi-pencil"></i>
+                                </a></td>
+
                         </tr>
 
                     @endforeach

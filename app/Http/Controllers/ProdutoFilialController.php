@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProdutoFilial;
-use App\Http\Requests\StoreProdutoFilialRequest;
-use App\Http\Requests\UpdateProdutoFilialRequest;
+use App\Models\Filial;
+use App\Models\Item;
+use Illuminate\Http\Request;
+
 
 class ProdutoFilialController extends Controller
 {
@@ -23,9 +25,14 @@ class ProdutoFilialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(Filial $filial){
+        
+        $produtos = Item::all();
+        $filial->produtos;
+        return view('app.produto_filial.create',[
+            'filial'=>$filial,
+            'produtos' => $produtos
+        ]);
     }
 
     /**
@@ -34,9 +41,9 @@ class ProdutoFilialController extends Controller
      * @param  \App\Http\Requests\StoreProdutoFilialRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProdutoFilialRequest $request)
+    public function store(Request $request, Filial $filial)
     {
-        //
+        
     }
 
     /**
@@ -68,7 +75,7 @@ class ProdutoFilialController extends Controller
      * @param  \App\Models\ProdutoFilial  $produtoFilial
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProdutoFilialRequest $request, ProdutoFilial $produtoFilial)
+    public function update(Request $request, ProdutoFilial $produtoFilial)
     {
         //
     }

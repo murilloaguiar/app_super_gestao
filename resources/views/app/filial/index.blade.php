@@ -21,6 +21,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nome</th>
+                                <th>Produtos</th>
                                 <th>Editar</th>
                                 <th>Excluir</th>
                             </tr>
@@ -31,6 +32,8 @@
                                 <tr>
                                     <td>{{$filial->id}}</td>
                                     <td>{{$filial->filial}}</td>
+
+                                    <td><a href="{{route('produto-filial.create', ['filial'=>$filial->id])}}" class="btn btn-success"><i class="bi bi-plus-square"></i></a></td>
 
                                     <td><a href="{{route('filial.edit',['filial'=>$filial->id])}}" class="btn btn-primary"><i class="bi bi-pencil"></i></a></td>
 
