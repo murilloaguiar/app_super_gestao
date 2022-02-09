@@ -28,6 +28,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nome</th>
+                            <th>Preço venda</th>
                             <th>Excluir</th>
                             
                         </tr>
@@ -37,6 +38,7 @@
                             <tr>
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>
+                                <td>{{ $produto->pivot->preco_venda }}</td>
             
                                 <td>{{-- <form action="{{route('pedido-produto.destroy',['pedido'=>$pedido->id, 'produto'=>$produto->id])}}" id="form_{{$pedido->id}}_{{$produto->id}}" method="post">
                                         @method('DELETE')
@@ -45,7 +47,7 @@
                                     </form> --}}
 
                                     <form
-                                        action="{{ route() }}"
+                                        action="{{ route('produto-filial.destroy',['produtoFilial'=>$produto->pivot->id, 'filial_id'=>$filial->id]) }}"
                                         id="form_{{ $produto->pivot->id }}" method="post">
                                         @method('DELETE')
                                         @csrf

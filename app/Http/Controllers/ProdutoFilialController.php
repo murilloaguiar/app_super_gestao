@@ -44,6 +44,15 @@ class ProdutoFilialController extends Controller
     public function store(Request $request, Filial $filial)
     {
         
+        $filial->produtos()->attach(
+            $request->produto_id, [
+                'preco_venda' => $request->preco_venda,
+                'estoque_maximo' => $request->estoque_maximo,
+                'estoque_minimo' => $request->estoque_minimo
+            ]
+        );
+
+        return redirect()->route('produto-filial.create',['filial'=>$filial->id]);
     }
 
     /**
@@ -86,8 +95,10 @@ class ProdutoFilialController extends Controller
      * @param  \App\Models\ProdutoFilial  $produtoFilial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProdutoFilial $produtoFilial)
-    {
-        //
+    public function destroy(ProdutoFilial $produtoFilial, $filial_id){
+ 
+        $produtoFilial->delete();
+
+        return redirect()->route('produto-filial.create',['filial'=>$filial_id]);
     }
 }

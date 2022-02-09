@@ -12,7 +12,7 @@ class Filial extends Model
     protected $fillable = ['filial'];
 
     public function produtos(){
-        return $this->BelongsToMany('App\Models\Item','produto_filiais','filial_id','produto_id');
+        return $this->BelongsToMany('App\Models\Item','produto_filiais','filial_id','produto_id')->withPivot('id','preco_venda','estoque_maximo','estoque_minimo');
     }
 
     public function rules(){

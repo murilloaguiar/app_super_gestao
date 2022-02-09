@@ -110,7 +110,7 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     //produto filiais
     Route::get('produto-filial/create/{filial}', 'ProdutoFilialController@create')->name('produto-filial.create');
     Route::post('produto-filial/create/{filial}', 'ProdutoFilialController@store')->name('produto-filial.store');
-    Route::delete('produto-filial/destroy/{produtoFilial}', 'ProdutoFilialController@destroy')->name('produto-filial.destroy');
+    Route::delete('produto-filial/destroy/{produtoFilial}/{filial_id}', 'ProdutoFilialController@destroy')->name('produto-filial.destroy');
 
 });
 /*
