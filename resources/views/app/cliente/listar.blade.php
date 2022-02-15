@@ -6,7 +6,7 @@
 
     <div class="conteudo-pagina">
         <div class="titulo-pagina-2">
-            <p>Listagem de clientes</p>
+            <p>Listagem de clientes pesquisados</p>
         </div>
         
         <div class="menu mb-3">

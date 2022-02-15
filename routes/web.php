@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,8 +61,6 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::get('/sair', 'LoginController@sair')
     ->name('app.sair');
 
-
-
     //--------fornecedor
     Route::get('/fornecedor', 'FornecedorController@index')
     ->name('app.fornecedor');
@@ -94,8 +93,11 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     //filiais
     Route::resource('filial', 'FilialController');
 
-
+    Route::get('/cliente/search', 'ClienteController@pesquisar')->name('cliente.search');
+    Route::get('/cliente/list', 'ClienteController@listar')->name('cliente.list');
+    Route::post('/cliente/list', 'ClienteController@listar')->name('cliente.list');
     Route::resource('cliente', 'ClienteController');
+
     Route::resource('pedido', 'PedidoController');
     //Route::resource('pedido-produto', 'PedidoProdutoController');
 

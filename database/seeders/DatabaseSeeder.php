@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Unidade;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([FornecedorSeeder::class,
         MotivoContatoSeeder::class,
         SiteContatoSeeder::class,
-        ClienteSeeder::class]
+        ClienteSeeder::class,
+        UnidadeSeeder::class]
         );
     }
 }

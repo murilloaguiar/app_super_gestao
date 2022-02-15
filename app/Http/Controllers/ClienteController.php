@@ -101,4 +101,18 @@ class ClienteController extends Controller
         $cliente->delete();
         return redirect()->route('cliente.index');
     }
+
+    public function pesquisar(){
+        return view('app.cliente.pesquisar');
+    }
+
+    public function listar(Request $request){
+        
+        $clientes = Cliente::where('nome','like', '%'.$request->input('nome').'%')->paginate(5);
+
+        return view('app.cliente.listar', [
+            'clientes' => $clientes,
+            'request' => $request->all()
+        ]);
+    }
 }
