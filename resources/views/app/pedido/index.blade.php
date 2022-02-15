@@ -12,7 +12,6 @@
         <div class="menu mb-3">
             <ul>
                 <li><a href="{{ route('pedido.create') }}">Novo</a></li>
-                <li><a href="">Consulta</a></li>
             </ul>
         </div>
 

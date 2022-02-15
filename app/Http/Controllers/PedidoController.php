@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use App\Models\Cliente;
+use Facade\FlareClient\Http\Client;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -70,7 +71,7 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Pedido $pedido)
     {
         //
     }
@@ -81,9 +82,13 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pedido $pedido)
     {
-        //
+        $clientes = Cliente::all();
+        return view('app.pedido.edit', [
+            'pedido'=>$pedido,
+            'clientes' => $clientes
+        ]);
     }
 
     /**
@@ -93,9 +98,11 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pedido $pedido)
     {
-        //
+        $pedido->update($request->all());
+
+        return redirect()->route('pedido.index');
     }
 
     /**
@@ -104,8 +111,8 @@ class PedidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Pedido $pedido){
+        $pedido->delete();
+        return redirect()->route('pedido.index');
     }
 }

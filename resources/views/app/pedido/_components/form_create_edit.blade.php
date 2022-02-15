@@ -1,5 +1,5 @@
 @if (isset($pedido->id))
-    <form action="{{route('pedido.update',$cliente->id)}}" method="post">
+    <form action="{{route('pedido.update',$pedido->id)}}" method="post">
         @method('PUT')
         @csrf
         
