@@ -4,12 +4,12 @@
 
 @section('conteudo')
     <div class="titulo-pagina-2">
-        <p>Pedido de {{$cliente->id}}</p>
+        <p>Pedido de {{$cliente->nome}}</p>
     </div>
 
     <div class="menu mb-3">
         <ul>
-            <li><a href="{{ route('pedido.create') }}">Novo</a></li>
+            <li><a href="{{ route('pedido.index') }}">Voltar</a></li>
         </ul>
     </div>
 
@@ -17,12 +17,16 @@
         <table class="table">
             <thead>
                 <th>Produto</th>
-                <th>Preço Un.</th>
-                <th>Quantidade</th>
+                {{-- <th>Preço Un.</th> --}}
+                <th>Quantidade</th> 
             </thead>
             <tbody>
-                @foreach ($pedidos_produtos as $pedido_produto)
-                    <td>{{$pedido_produto->produto_id}}</td>
+                @foreach ($pedido->produtos as $produto)
+                  <tr>
+                    <td>{{$produto->nome}}</td>
+                    <td>{{$produto->pivot->quantidade}}</td>
+                    {{-- <td>{{$produtos->pivot->preco_venda}}</td> --}}
+                  </tr>
                 @endforeach
             </tbody>
         </table>

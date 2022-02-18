@@ -16,7 +16,7 @@ class ProdutoDetalhe extends Model
 
     public function rules(){
         return [
-            'produto_id' =>"unique:produto_detalhes,produto_id, $this->id|required",
+            'produto_id' =>"unique:produto_detalhes,produto_id, $this->id|required|numeric",
             'comprimento' => "required|numeric",
             'largura' => "required|numeric",
             'altura' => "required|numeric",

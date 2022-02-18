@@ -33,7 +33,6 @@ class ProdutoDetalheController extends Controller
             'unidades'=>$unidades
         ]);
 
-        return redirect()->route('produto.index');
     }
 
     /**
@@ -44,9 +43,14 @@ class ProdutoDetalheController extends Controller
      */
     public function store(Request $request)
     {
+        
         $produtoDetalhe = new ProdutoDetalhe;
-        $request->validate($produtoDetalhe->rules(),$produtoDetalhe->feedback());
-        ProdutoDetalhe::create($request->all());
+        
+        //$request->validate($produtoDetalhe->rules(),$produtoDetalhe->feedback());
+        //dd($request->all());
+        $produtoDetalhe->create($request->all());
+
+        return redirect()->route('produto.index');
     }
 
     /**
@@ -86,7 +90,7 @@ class ProdutoDetalheController extends Controller
      */
     public function update(Request $request, ProdutoDetalhe $produtoDetalhe)
     {
-        $request->validate($produtoDetalhe->rules(),$produtoDetalhe->feedback());
+        //$request->validate($produtoDetalhe->rules(),$produtoDetalhe->feedback());
         $produtoDetalhe->update($request->all());
         return redirect()->route('produto.index');
     }

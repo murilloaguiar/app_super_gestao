@@ -36,6 +36,7 @@
                     </thead>
                     <tbody>
                         @foreach ($pedido->produtos as $produto)
+                              {{$produto}}
                             <tr>
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>

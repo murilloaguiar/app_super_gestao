@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use App\Models\Cliente;
+use App\Models\Item;
 use App\Models\PedidoProduto;
+use App\Models\ProdutoFilial;
 use Facade\FlareClient\Http\Client;
 use Illuminate\Http\Request;
 
@@ -75,11 +77,10 @@ class PedidoController extends Controller
     public function show(Pedido $pedido)
     {
         $cliente = Cliente::find($pedido->cliente_id);
-        $pedidos_produtos = PedidoProduto::where('pedido_id','=',$pedido->id)->get();
+        $pedido->produtos;
         return view('app.pedido.show', [
             'pedido'=>$pedido,
-            'cliente' => $cliente,
-            'pedidos_produtos' => $pedidos_produtos
+            'cliente' => $cliente
         ]);
     }
 
